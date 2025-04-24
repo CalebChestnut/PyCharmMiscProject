@@ -1,0 +1,1 @@
+# switch case of every possibility because why the fuck not
