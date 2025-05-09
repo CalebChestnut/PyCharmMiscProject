@@ -4,6 +4,8 @@ todo = ["y=0, solve", "-lim and +lim are equal", "Table[Ask] or uhhhhhh", "table
 trigder = ["sin(x)->cos(x)*x’", "cos(x)->-sin(x)*x’", "tan(x)->sec^2(x)*x’", "sec(x)->sec(x)tan(x)*x’", "csc(x)->-csc(x)cot(x)*x’", "cot(x)=-csc^2(x)*x’", "Arcsin(u) -> 1/sqrt(1-u^2) * u’", "Arctan(u) -> 1/(1+u)^2 * u’", "Arcsec(u) ->1/(|u| sqrt(u^2-1)) * u’"]
 constantder = ["a^u->lna * u’", "e^u -> e^u * u’", "Log_a u->1/(ulna) * u’"]
 trigint = ["∫ secx tanx dx = secx + C", "∫ cscxcotx dx = -cscx + C", "∫ tanx dx = ln |secx| + C", "∫ cotx dx = ln|sinx| + C", "∫ csc^2x dx = -cotx + C", "∫secx dx = ln|secx+tanx| + C", "∫cscx dx = ln|cscx-cotx| + C"]
+shape = ["1. Square", "2. Circle", "3. Triangle", "4. Equilateral Triangle", "5. Trapezoid"]
+shapearea = ["A=w*h, P=2w+2h", "A=𝛑*r^2, C=2𝛑*r", "A=1/2(bh)", "A=b^2*(sqrt(3)/4)"]
 def liist():
     index = 0
     while True:
@@ -22,9 +24,9 @@ def liist():
             break
     print(todo[int(choice)-1])
 def trig():
-    whar = input("1 Derivative \n 2 Integral")
+    whar = input("1 Derivative \n2 Integral\n3 washer or disc")
     if whar=="1":
-        whar=input("1 trig \n 2 constants")
+        whar=input("1 trig \n2 constants")
         if whar=="1":
             for str in trigder:
                 input(str)
@@ -34,8 +36,29 @@ def trig():
     elif whar=="2":
         for str in trigint:
             input(str)
-whar=input("1. list thing \n 2. Trig+washer/disc method")
+    elif whar=="3":
+        print("Washer Method: 𝛑∫R^2-r^2 dx\nDisc Method: 𝛑∫R^2 dx")
+def shapes():
+    index = 0
+    while True:
+        print("What do you see?")
+        if index != 0:
+            print("0. previous page")
+        print(shape[index] + "\n" + shape[index + 1])
+        if index + 1 != len(shape) - 1:
+            print(".. next page")
+        choice = input()
+        if choice == "0" and index != 0:
+            index = index - 1
+        elif choice == "." and index + 1 != len(shape) - 1:
+            index = index + 1
+        else:
+            break
+    print(shapearea[int(choice)-1])
+whar=input("1. List thing \n2. Trig+Washer/Disc method\n3. Shape Areas")
 if whar == "1":
     liist()
 elif whar == "2":
     trig()
+elif whar == "3":
+    shapes()
